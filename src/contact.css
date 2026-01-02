@@ -1,0 +1,217 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===============================
+   CONTACT SECTION (WRAPPER)
+================================ */
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background: #f9fafb;
+}
+
+/* ===============================
+   CARD CONTAINER
+================================ */
+.contact-card {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   TITLE
+================================ */
+.contact-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-title h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.contact-title p {
+  margin-top: 0.75rem;
+  color: #64748b;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* ===============================
+   GRID (INI KUNCI UTAMA)
+================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* ===============================
+   CONTACT INFO (LEFT)
+================================ */
+.contact-info {
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #6366f1;
+  margin-top: 0.2rem;
+}
+
+.contact-icon.whatsapp {
+  color: #22c55e;
+}
+
+.contact-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.contact-info p {
+  color: #475569;
+  margin-top: 0.2rem;
+}
+
+.contact-note {
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* ===============================
+   FORM (RIGHT)
+================================ */
+.contact-form {
+  width: 100%;
+  max-width: 100%;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1.2rem;
+  border-radius: 0.7rem;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+  outline: none;
+  background: #ffffff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.contact-form button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: #6366f1;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   RESPONSIVE (MOBILE)
+================================ */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-title h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ===============================
+   DARK MODE SUPPORT
+================================ */
+.dark .contact-section {
+  background: #020617;
+}
+
+.dark .contact-card {
+  background: #020617;
+  box-shadow: 0 25px 60px rgba(255, 255, 255, 0.05);
+}
+
+.dark .contact-title h2,
+.dark .contact-info h3,
+.dark .contact-form label {
+  color: #ffffff;
+}
+
+.dark .contact-title p,
+.dark .contact-info p,
+.dark .contact-note {
+  color: #94a3b8;
+}
+
+.dark .contact-form input,
+.dark .contact-form textarea {
+  background: #020617;
+  border-color: #334155;
+  color: #ffffff;
+}
+
+.dark .contact-form input::placeholder,
+.dark .contact-form textarea::placeholder {
+  color: #64748b;
+}
+
+.dark .contact-icon {
+  color: #818cf8;
+}
+
+.dark .contact-icon.whatsapp {
+  color: #4ade80;
+}
