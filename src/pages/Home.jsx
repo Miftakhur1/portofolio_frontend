@@ -5,7 +5,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import api from "../api/axios";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL;
+
 const texts = [
   "Web Developer",
   "React Developer",
@@ -15,6 +16,7 @@ const texts = [
 ];
 
 export default function Home() {
+  console.log("API URL:", import.meta.env.VITE_API_URL);
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [char, setChar] = useState(0);
