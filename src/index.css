@@ -670,34 +670,46 @@ body.dark .about-photo-wrap {
 /* PROJECTS SECTION */
 /* ============================= */
 
+/* ============================= */
+/* PROJECTS SECTION */
+/* ============================= */
+
 .projects-section {
-  background-color: #f9fafb;
   padding: 6rem 1.5rem;
+  background: linear-gradient(
+    180deg,
+    #f9fafb 0%,
+    #f1f5f9 100%
+  );
 }
+
+html.dark .projects-section {
+  background: transparent;
+}
+
+/* ============================= */
+/* CONTAINER */
+/* ============================= */
 
 .projects-container {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.projects-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
+/* ============================= */
+/* HEADER */
+/* ============================= */
 
-.projects-header h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
+.section-title {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 3.5rem;
   color: #111827;
 }
 
-.projects-header p {
-  margin-top: 0.75rem;
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-html.dark .projects-section {
-  background-color: #020617;
+html.dark .section-title {
+  color: #f8fafc;
 }
 
 /* ============================= */
@@ -706,7 +718,7 @@ html.dark .projects-section {
 
 .projects-grid {
   display: grid;
-  gap: 2rem;
+  gap: 2.25rem;
 }
 
 @media (min-width: 640px) {
@@ -726,45 +738,63 @@ html.dark .projects-section {
 /* ============================= */
 
 .project-card {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 4.5rem; /* ⬅️ RUANG KHUSUS BUTTON */
+
   background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #eef2f7;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s ease;
+}
+
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================= */
+/* IMAGE */
+/* ============================= */
+
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* BODY */
+/* ============================= */
+
+.project-body {
+  padding: 0.8rem;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
-}
-
-/* ============================= */
-/* CARD CONTENT */
-/* ============================= */
-
-.project-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.project-title {
-  font-size: 1.05rem;
-  font-weight: 600;
+.project-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #111827;
 }
 
-.project-desc {
-  margin-top: 0.75rem;
+.project-body p {
+  margin-top: 0.65rem;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #4b5563;
+  color: #475569;
 
-  /* Batasi 4 baris */
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -772,71 +802,55 @@ html.dark .projects-section {
 }
 
 /* ============================= */
-/* ACTION BUTTON */
+/* ACTIONS */
 /* ============================= */
 
-.project-actions {
-  margin-top: auto;
+
+ .project-actions {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+
   display: flex;
   gap: 0.75rem;
-  padding-top: 1.25rem;
 }
+
 
 .project-btn {
   flex: 1;
-  text-align: center;
-  padding: 0.55rem 0;
-  border-radius: 10px;
+  padding: 0.6rem 0;
+  border-radius: 999px;
   font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.25s ease;
-  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
   text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-/* Demo Button */
+/* Demo */
 .project-btn.demo {
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: #ffffff;
 }
 
 .project-btn.demo:hover {
-  background-color: #1d4ed8;
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
 }
 
-/* Github Button */
+/* GitHub */
 .project-btn.github {
-  background-color: #ffffff;
-  color: #374151;
-  border: 1px solid #d1d5db;
+  background: transparent;
+  border: 1px solid #cbd5f5;
+  color: #2563eb;
 }
 
 .project-btn.github:hover {
-  background-color: #f3f4f6;
+  background: rgba(37, 99, 235, 0.08);
 }
 
 /* ============================= */
-/* STATES */
-/* ============================= */
-
-.projects-loading,
-.projects-empty {
-  text-align: center;
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-.project-image {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 14px 14px 0 0;
-}
-.project-card {
-  overflow: hidden;
-}
-/* ============================= */
-/* PROJECT CARD – DARK MODE */
+/* DARK MODE */
 /* ============================= */
 
 html.dark .project-card {
@@ -846,19 +860,27 @@ html.dark .project-card {
     rgba(2, 6, 23, 0.98)
   );
   border: 1px solid rgba(148, 163, 184, 0.15);
+
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.04),
-    0 30px 70px rgba(0,0,0,0.85);
+    0 35px 80px rgba(0,0,0,0.9);
 }
-html.dark .project-title {
-  color: #f8fafc;
-  font-weight: 700;
-}
-html.dark .project-desc {
+
+html.dark .project-body h3 {
   color: #f8fafc;
 }
-html.dark h2 {
-  color: #f8fafc;
+
+html.dark .project-body p {
+  color: #cbd5f5;
+}
+
+html.dark .project-btn.github {
+  border-color: #334155;
+  color: #93c5fd;
+}
+
+html.dark .project-btn.github:hover {
+  background: rgba(59, 130, 246, 0.12);
 }
 
 
@@ -1139,49 +1161,45 @@ html.dark .footer-bottom {
 /* ============================= */
 /* CONTACT SECTION */
 /* ============================= */
+/* ============================= */
+/* CONTACT SECTION – FINAL CODE */
+/* ============================= */
 
+/* ---------- LIGHT MODE (DEFAULT) ---------- */
 .contact-section {
   padding: 6rem 1.5rem 7rem;
   position: relative;
-  background:transparent
+ 
 }
 
 .contact-container {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  background: transparent;
 }
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
-
+/* Header */
 .contact-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 }
 
 .contact-header h2 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #111827;
+  color: #2563eb;
 }
 
 .contact-header p {
   margin-top: 0.75rem;
   font-size: 0.95rem;
-  color: #6b7280;
+  color: #64748b;
   line-height: 1.6;
 }
 
-/* ============================= */
-/* CONTENT */
-/* ============================= */
-
+/* Grid */
 .contact-content {
   display: grid;
-  gap: 2rem;
-
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
@@ -1190,34 +1208,21 @@ html.dark .footer-bottom {
   }
 }
 
-/* ============================= */
-/* LEFT INFO */
-/* ============================= */
-
-.contact-info {
+/* Cards – Light */
+.contact-info,
+.contact-cta {
   background: #ffffff;
-  border-radius: 18px;
-  padding: 6rem;
-  flex-direction: column;
-  border: 1px solid #eef2f7;
-  box-shadow: 0  18px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
 }
 
-.contact-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.contact-item:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
-
+/* Text */
 .contact-item span {
   font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #9ca3af;
+  letter-spacing: 0.1em;
+  color: #6b7280;
 }
 
 .contact-item a {
@@ -1227,119 +1232,83 @@ html.dark .footer-bottom {
   text-decoration: none;
 }
 
-.contact-item a:hover {
-  text-decoration: underline;
-}
-
-/* ============================= */
-/* RIGHT CTA */
-/* ============================= */
-
-.contact-cta {
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.1),
-    rgba(37, 99, 235, 0.1)
-  );
-  border-radius: 18px;
-  padding: 2.5rem 2rem;
-  border: 1px solid #eef2f7;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-  text-align: center;
-  gap: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.contact-cta h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #111827;
-}
-
-.contact-cta p {
-  margin: 0.75rem 0 1.75rem;
+.contact-desc {
+  margin-top: 0.75rem;
   font-size: 0.95rem;
-  color: #4b5563;
+  color: #475569;
   line-height: 1.6;
 }
 
+/* Buttons */
+.contact-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .contact-button {
-  align-self: flex-start;
   padding: 0.7rem 1.75rem;
   border-radius: 999px;
-  background: #2563eb;
-  color: #ffffff;
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.25s ease;
+  background: #2563eb;
+  color: #ffffff;
+  transition: 0.25s ease;
 }
 
 .contact-button:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
 }
+
 .contact-button.whatsapp {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background-color: #16a34a;
+  background: #22c55e;
 }
 
-/* ============================= */
-/* DARK MODE */
-/* ============================= */
-
-.dark .contact-header h2 {
-  color: #f8fafc;
+.contact-button.whatsapp:hover {
+  background: #16a34a;
 }
 
-.dark .contact-header p {
-  color: #cbd5f5;
+/* ---------- DARK MODE (SPACE / PLANET ACTIVE) ---------- */
+html.dark .contact-section {
+  background: transparent; /* biarkan canvas planet */
 }
 
-.dark .contact-info {
-  background: rgba(2, 6, 23, 0.7);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+html.dark .contact-container {
+  position: relative;
+  z-index: 2;
 }
 
-.dark .contact-item span {
-  color: #94a3b8;
-}
-
-.dark .contact-item a {
+html.dark .contact-header h2 {
   color: #60a5fa;
 }
 
-.dark .contact-cta {
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.15),
-    rgba(37, 99, 235, 0.15)
-  );
-  border-color: rgba(255, 255, 255, 0.08);
+html.dark .contact-header p {
+  color: #94a3b8;
 }
 
-.dark .contact-cta h3 {
-  color: #f8fafc;
+/* Cards – Dark (Glass, TEMBUS) */
+html.dark .contact-info,
+html.dark .contact-cta {
+  background: rgba(2, 6, 23, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
 }
 
-.dark .contact-cta p {
-  color: #cbd5f5;
+/* Text – Dark */
+html.dark .contact-item span {
+  color: #94a3b8;
 }
 
-.dark .contact-button {
-  background: #3b82f6;
-}
-.dark .contact-button.whatsapp {
-  background-color: #22c55e;
+html.dark .contact-item a {
+  color: #60a5fa;
 }
 
-.dark .contact-button:hover {
-  background: #2563eb;
+html.dark .contact-desc {
+  color: #94a3b8;
 }
-
-

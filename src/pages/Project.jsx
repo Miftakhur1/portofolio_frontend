@@ -1,88 +1,97 @@
-import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
+import cika from "../assets/cika.png";
+import image from "../assets/image.png";
+import canva from "../assets/canva.png";
+import "../project.css";
+
+const projects = [
+  {
+    id: 1,
+    nama: "Cika Laundry Website",
+    deskripsi_pendek:
+      "Website untuk layanan laundry Cika Laundry menggunakan React dan Tailwind CSS.",
+    thumbnail: cika,
+    demo: "https://cika-laundry.vercel.app/",
+    linkgithub: "https://github.com/Miftakhur1",
+  },
+  {
+    id: 2,
+    nama: "UI / UX Design - Aplikasi Produksi Cika Laundry",
+    deskripsi_pendek:
+      "Desain UI/UX untuk aplikasi produksi laundry menggunakan Figma.",
+    thumbnail: image,
+    demo:
+      "https://www.figma.com/proto/sI2uruv0OzxwLkKWIO3iaP/Aplikasi-produksi-cika-laundry",
+    linkgithub: null,
+  },
+  {
+    id: 3,
+    nama: "Desain Brosur Canva",
+    deskripsi_pendek:
+      "Kumpulan desain brosur menggunakan Canva.",
+    thumbnail: canva,
+    demo:
+      "https://www.canva.com/design/DAGgr_6q9VQ/tAjqrDhskoSrYqRwYd03zA/edit",
+    linkgithub: null,
+  },
+];
 
 export default function Project() {
-  const [project, setProject] = useState([]);
-  const [loading, setLoading] = useState(true);
-  // === Fetch Projects ===
-  useEffect(() => {
-  fetch("/projects")
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("FETCH RESULT:", data);
-      console.log("IS ARRAY:", Array.isArray(data));
-
-      setProject(data);
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.error("Error fetch project:", err);
-      setLoading(false);
-    });
-}, []);
-
   return (
     <Layout>
-        <section id="projects" className="projects-section">
-  <div className="projects-container">
-    <div className="projects-header">
-      <h2>Projects <span className="hero-name">Saya</span></h2>
-      <p>Beberapa project yang pernah saya kerjakan</p>
-    </div>
-
-    {loading ? (
-      <p className="projects-loading">Loading projects...</p>
-    ) : project.length === 0 ? (
-      <p className="projects-empty">Belum ada project.</p>
-    ) : (
-      <div className="projects-grid">
-        {project.map((project) => (
-          <div key={project.id} className="project-card">
-            <div className="project-content">
-               {project.thumbnail && (
-              <img
-                src={`http://127.0.0.1:8000/storage/${project.thumbnail}`}
-                alt={project.nama}
-                className="project-image"
-              />
-            )}
-              <h3 className="project-title">{project.nama}</h3>
-           
-              <p className="project-desc">
-                {project.deskripsi_pendek}
-              </p>
-
-              <div className="project-actions">
-                {project.linkdemo && (
-                  <a
-                    href={project.linkdemo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-btn demo"
-                  >
-                    Demo
-                  </a>
-                )}
-
-                {project.linkgithub && (
-                  <a
-                    href={project.linkgithub}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-btn github"
-                  >
-                    GitHub
-                  </a>
-                )}
-                
-              </div>
-            </div>
+      <section className="projects-section">
+        <div className="projects-container">
+          <div className="projects-header">
+            <h2>
+              Projects <span className="hero-name">Saya</span>
+            </h2>
+            <p>Beberapa project yang pernah saya kerjakan</p>
           </div>
-        ))}
-      </div>
-    )}
-  </div>
-</section>
+
+          <div className="projects-grid">
+            {projects.map((p) => (
+              <div key={p.id} className="project-card">
+                {p.thumbnail && (
+                  <img
+                    src={p.thumbnail}
+                    alt={p.nama}
+                    className="project-image"
+                  />
+                )}
+
+                <div className="project-content">
+                  <h3 className="project-title">{p.nama}</h3>
+                  <p className="project-desc">{p.deskripsi_pendek}</p>
+
+                  <div className="project-actions">
+                    {p.demo && (
+                      <a
+                        href={p.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-btn demo"
+                      >
+                        Demo
+                      </a>
+                    )}
+
+                    {p.linkgithub && (
+                      <a
+                        href={p.linkgithub}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-btn github"
+                      >
+                        GitHub
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }
