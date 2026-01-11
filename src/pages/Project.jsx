@@ -16,7 +16,7 @@ const projects = [
   },
   {
     id: 2,
-    nama: "UI / UX Design - Aplikasi Produksi Cika Laundry",
+    nama: "UI / UX Mobile Design - Aplikasi Produksi Cika Laundry",
     deskripsi_pendek:
       "Desain UI/UX untuk aplikasi produksi laundry menggunakan Figma.",
     thumbnail: image,

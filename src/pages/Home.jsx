@@ -4,6 +4,7 @@ import Miftah from "../assets/1.jpg.jpg";
 import cika from "../assets/cika.png";
 import image from "../assets/image.png";
 import canva from "../assets/canva.png";
+import cv from "../assets/cv.pdf"
 
 import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
@@ -41,7 +42,7 @@ const projects = [
   },
   {
     id: 2,
-    nama: "UI / UX Design - Aplikasi Produksi Cika Laundry",
+    nama: "UI / UX Mobile Design - Aplikasi Produksi Cika Laundry",
     deskripsi_pendek:
       "Desain UI/UX untuk aplikasi produksi laundry menggunakan Figma.",
     thumbnail: image,
@@ -143,7 +144,7 @@ export default function Home() {
             <a href="/project" className="btn-primary">
               Lihat Project
             </a>
-            <a href="/cv.pdf" className="btn-outline">
+            <a href={cv} className="btn-outline">
               Lihat CV
             </a>
           </div>
